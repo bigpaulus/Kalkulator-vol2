@@ -30,18 +30,48 @@ namespace Kalkulator_vol2
                 Console.Write("Wpisz liczbę:  ");
                 decimal a = Convert.ToDecimal(Console.ReadLine());
 
-
+            kont1:
                 Console.Write("Wybierz ( +, -, *, / ):  ");
                 string z1 = Console.ReadLine();
 
+
+                if (z1 == "+" || z1 == "-" || z1 == "*" || z1 == "/")
+                {
+                    goto kont2;
+                }
+                else
+                {
+                    Console.WriteLine("Wpisz poprawny znak działania");
+                    Console.ReadKey();
+                    goto kont1;
+                }
+
+
+            kont2:
                 Console.Write("Wpisz kolejną liczbę:  ");
                 decimal b = Convert.ToDecimal(Console.ReadLine());
 
-
+            kont4:
                 Console.Write("Wybierz ( +, -, *, / ) lub znak ( = ):  ");
                 string z2 = Console.ReadLine();
 
-               
+                if (z2 == "+" || z2 == "-" || z2 == "*" || z2 == "/" || z2 == "=")
+                {
+                    goto kont3;
+                }
+                else
+                {
+                    Console.WriteLine("Wpisz poprawny znak działania");
+                    Console.ReadKey();
+                    goto kont4;
+                }
+
+
+
+
+
+            kont3:
+
 
                 if (z1 == "+" && z2 == "=")
                 {
@@ -91,7 +121,7 @@ namespace Kalkulator_vol2
 
                 }
 
-               
+
 
                 else
                 {
@@ -323,6 +353,9 @@ namespace Kalkulator_vol2
                 Console.Clear();
                 goto poczatek;
             }
+
+
+
             catch (DivideByZeroException)
             {
                 Console.WriteLine("Brak możliwości dzielenia przez zero"); ; ;
